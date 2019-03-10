@@ -35,7 +35,7 @@ def gene_suggest():
     in_limit = request.args.get('limit') or 10
     match_string = partial + '%'
     gene = gene_autocomplete.query.filter(and_(gene_autocomplete.species == in_species,gene_autocomplete.display_label.like(match_string))).limit(in_limit).all()
-    print gene 
+    #print gene 
     return flask.jsonify(eqtls=[e.serialize() for e in gene]) 
     #return "|".join(gene)
 
@@ -46,7 +46,7 @@ def gene_species():
         #print(request.form)
     in_species = request.args.get('species')
     gene_spec = gene_autocomplete.query.filter(gene_autocomplete.species == in_species).all()
-    print gene_spec
+    #print gene_spec
     return flask.jsonify(eqtls=[e.serialize() for e in gene_spec])
 
 
@@ -63,11 +63,18 @@ class gene_autocomplete(db.Model):
     location = db.Column(db.String(60), unique=False, nullable=True, primary_key=False)
 
     def __repr__(self):
-        return self.display_label
+        #return self.display_label
+        return {
+            'label': self.display_label,
+            'species': self.species,
+            'stable_id': self.stable_id
+        }
 
     def serialize(self):
         return {
-            'label': self.display_label
+            'label': self.display_label,
+            'species': self.species,
+            'stable_id': self.stable_id
         }
     def __iter__(self):
         return self.to_dict().iteritems()
