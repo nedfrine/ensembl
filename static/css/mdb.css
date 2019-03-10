@@ -8514,3 +8514,13 @@ ul.stepper {
 .fast.spinner-grow {
   -webkit-animation: spinner-grow .4s linear infinite;
   animation: spinner-grow .4s linear infinite; }
+
+
+.Typeahead-spinner {
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  display: none;
+  width: 28px;
+  height: 28px;
+}
