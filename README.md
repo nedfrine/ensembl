@@ -22,15 +22,6 @@ Steps to start the App
 7) git pull https://github.com/nedfrine/ensembl.git develop
 8) python app.py
 
----output----
-  Serving Flask app "app" (lazy loading)
-  Environment: production
-   WARNING: Do not use the development server in a production environment.
-   Use a production WSGI server instead.
-  Debug mode: off
-  Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
-
-
 After the app is started, it can be tested either using the Browser or using CURL from the command line.
 A demo of typeahead using the same API, can be tested by opening http://<server-name>:5000
 
