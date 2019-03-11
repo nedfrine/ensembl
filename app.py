@@ -14,7 +14,7 @@ database_file = "mysql://anonymous:@193.62.193.10/ensembl_website_90"
 
 
 app = flask.Flask(__name__)
-app.config["DEBUG"] = True
+app.config["DEBUG"] = False
 app.config["SQLALCHEMY_DATABASE_URI"] = database_file
 
 db = SQLAlchemy(app)
